@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="header :: header"></div>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="empUpdateStyle.css" type="text/css">	
+<title>社員変更画面</title>
+<div th:replace="footer :: footer"></div>
+</head>
+<body>
+	<form id="empUpdate">
+		
+		<div class="form-row">
+			<div class="label-box"><span class="form-label">社員氏名</span></div>
+			<input type="text" value="名前を入力してください">
+		</div>
+	
+		<div class="form-row">
+			<div class="label-box"><span class="form-label">パスワード</span></div>
+			<input type="text" value="パスワードを入力してください">
+		</div>
+	
+		<div class="form-row">
+			<div class="label-box"><span class="form-label">有給休暇日数</span></div>
+			<input type="text" value="有給休暇日数を入力してください">
+		</div>
+	
+		<div class="form-row">
+			<div class="label-box"><span class="form-label">入社日</span></div>
+			<input type="date">
+		</div>
+
+		<div class="form-btn">
+			<div class="label-btn">
+			<input type="button" class="empUpdBtn" value="確認">
+			</div>
+		</div>
+	</form>
+</body>
+</html>

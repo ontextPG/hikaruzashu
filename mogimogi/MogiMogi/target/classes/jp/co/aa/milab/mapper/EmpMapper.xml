@@ -1,0 +1,16 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.aa.milab.mapper.EmpMapper">
+    <!-- 新規登録 -->
+    <insert id="empRegist" parameterType="jp.co.aa.milab.model.EmployeeForm">
+        INSERT INTO Employee (empId,empName,pass,mail,dateJoin) VALUES (#{empId},#{empName}, #{pass},#{mail},#{dateJoin})
+    </insert>
+    <!-- 社員編集 -->
+      <update id="empUpdate" parameterType="jp.co.aa.milab.model.EmployeeForm">
+        UPDATE Employee SET  empName =#{empName}, pass =#{pass},mail =#{mail} WHERE empId=#{empId}
+      </update>
+    <!-- 社員削除-->
+      <delete id="empDelete" parameterType="String">
+        DELETE FROM Employee WHERE empId=#{empId}
+      </delete>
+  </mapper>
+    

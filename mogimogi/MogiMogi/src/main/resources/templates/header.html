@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<!-- モバイル端末において、表示サイズや拡大倍率の初期設定を指定するためのタグ -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>ヘッダー</title>
+</head>
+<body>
+	<!-- th:replace="header :: header" で呼び出せるようにする -->
+	<div th:fragment="header">
+	<header>
+		<nav>
+			<div class="header1">
+				ユーザーID：<span th:text="${empId}"></span>　　　
+				ユーザー名：<span th:text="${empName}"></span>
+			</div>
+			<div class="header2">
+				<a th:href="@{/menu}">メインメニュー</a><br>
+				<a th:href="@{/logout}">ログアウト</a>
+			</div>
+		</nav>
+	</header>
+	</div>
+ 
+</body>
+</html>

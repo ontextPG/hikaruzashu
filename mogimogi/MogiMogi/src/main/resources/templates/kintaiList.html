@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>勤怠一覧画面</title>
+</head>
+<body>
+	<div th:replace="header :: header"></div>
+	
+	<!-- 管理画面でのみ表示 -->
+	社員ID：<span th:text="${empId}"></span>　　　
+	社員氏名：<span th:text="${empName}"></span>
+	
+	<!-- 〇月の勤怠記録 -->
+	<h2 th:text="${month} + '月の勤怠記録'"></h2>
+	
+	<!-- 前月・翌月ボタン -->
+	<div>
+		<a th:href="@{'&month=' + ${prevMonth}}">＜前月</a>　　　　　　　　　　
+		<a th:href="@{'&month=' + ${nextMonth}}">翌月＞</a>
+	</div>
+	
+	<form action"kintaiDelete" method="post">
+		<table border="1">
+			<tr>
+				<td>日付</td>
+				<td>出勤時間</td>
+				<td>退勤時間</td>
+				<td>変更</td>
+				<td>削除</td>
+			</tr>
+			<tr th:each="attend:${attendance}"> <!-- この名前は後で確認する -->
+				<td th:text="${attend.workDate}"></td>
+				<td th:text="${attend.clockIn}"></td>
+				<td th:text="${{attend.clockOut}"></td>
+				<td><a href="/kintaiUpdate" th:href="@{/kintaiUpdate(id=${attend.empId})}">変更</a></td>
+				<td><input type="checkbox" name="kintaiDelete" th:value="${attend.empId}"></td>
+			</tr>
+		</table>
+		選択した項目を削除します。
+		<button type="submit">削除</button>
+		
+		<table border="1">
+			<trtr>
+				<td>日数集計</td>
+				<td>
+					<table border="1">
+					<tr>
+						<td>出勤</td>
+						<td th:text="　"></td>
+					</tr>
+					<tr>
+						<td>欠勤</td>
+						<td th:text="　"></td>
+					</tr>
+					<tr>
+						<td>遅刻</td>
+						<td th:text="　"></td>
+					</tr>
+					<tr>
+						<td>早退</td>
+						<td th:text="　"></td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>有休残り</td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+	<div th:replace="footer :: footer"></div>
+</body>
+</html>

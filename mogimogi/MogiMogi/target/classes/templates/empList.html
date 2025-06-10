@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>社員一覧画面</title>
+        <!-- cssのファイル名入れてね↓↓↓ -->
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div th:replace="header :: header"></div>
+        <h1>社員一覧画面</h1>
+        <!-- ↓↓↓エラーメッセージ「データがありません」 -->
+        <div th:errors="*{　　　　}"></div>
+        <div>社員IDまたは社員氏名を入力してください</div>
+        <input type="text" name="　　　　">
+        <button>検索</button>
+
+    <!-- 社員一覧の表 -->
+     <form action="../　　　" method="post">
+    <table border="1">
+        <!-- 表の一行目(見出し) -->
+        <tr>
+            <th>社員ID</th>
+            <th>氏名</th>
+            <th>勤怠一覧</th>
+            <th>変更</th>
+            <th>削除</th>
+        </tr>
+
+    <!-- th:eachで繰り返し表示 -->
+        <tr th:each="sample : ${sampleList}">
+            <td th:text="${　　　　}">test</td>
+            <td th:text="${　　　　}">テストタロウ</td>
+            <td><a href="../　　">勤怠一覧</a></td>
+            <td><a href="../　　">変更</a></td>
+            <td><input type="checkbox" name="　　" th:value="${　　　　}" /></td>
+        </tr>
+    </table>
+        選択した項目を削除します。
+        <button type="submit">削除</button>
+    </form>
+
+    <div th:replace="footer :: footer"></div>
+    <!-- js入れる用 -->
+    <!-- <script src="ファイルパス"></script> -->
+    </body>
+</html>

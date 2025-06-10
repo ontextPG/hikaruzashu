@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>勤怠変更画面</title>
+</head>
+<body>
+	
+	<!-- ヘッダーを読み込む場所 -->
+		  <div th:replace="header :: header"></div>
+	
+	<h1>日時勤怠詳細</h1>
+	
+	<form method="POST" action="/kintaiUpdate" th:object="${attencanceForm}">
+		   								
+		<input type="date"  th:field="*{workDate}" readonly>
+		
+		
+		<div th:errors="*{　　　　　}"></div>
+		出勤 		
+		<input type="text" th:field="*{clockIn}" th:value="${attendanceForm.clockIn}">
+	
+		
+		<div th:errors="*{　　　　　}"></div>
+		退勤
+		<input type="text" th:field="*{clockOut}" th:value="${attendanceForm.clockOut}">
+		<br>
+		
+		<input type="submit" value="登録">
+		
+	</form>
+	
+	
+	<!-- フッターを読み込む場所 -->
+	  <div th:replace="footer :: footer"></div>
+	
+
+		
+	
+
+</body>
+</html>

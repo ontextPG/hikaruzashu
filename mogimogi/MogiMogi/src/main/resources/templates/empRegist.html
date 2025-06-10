@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">		
+<head>
+	<div th:replace="header :: header"></div>
+	<meta charset="UTF-8">		
+	<link rel="stylesheet" href="empRegStyle.css" type="text/css">	
+<title>社員登録画面</title>
+<div th:replace="footer :: footer"></div>
+</head>
+<body>
+	<form id="empReg" method="post" action="/empRegist" th:object="${employeeForm}">
+		<div class="form-row">
+			<div class="label-box"><span class="form-label">部署</span></div>
+			<select>
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+			</select>
+		</div>
+	
+		<div class="form-row">
+			<div class="label-box"><span class="form-label">役職</span></div>
+			<select>
+				<option value="">4</option>
+				<option value="">5</option>
+				<option value="">6</option>
+			</select>
+		</div>
+	
+		<div class="form-row">
+			<div th:errors="*{empName}"></div>
+			<div class="label-box"><span class="form-label">社員氏名</span></div>
+			<input type="text" 	name="empName" th:value="*{empName}">
+		</div>
+	
+		<div class="form-row">
+			<div th:errors="*{empId}"></div>
+			<div class="label-box"><span class="form-label">社員ID</span></div>
+			<input type="text" 	name="empId" th:value="*{empId}">
+		</div>
+	
+		<div class="form-row">
+			<div th:errors="*{pass}"></div>
+			<div class="label-box"><span class="form-label">パスワード</span></div>
+			<input type="text" 	name="pass" th:value="*{pass}">
+		</div>
+	
+		<div class="form-row">
+			<div th:errors="*{mail}"></div>
+			<div class="label-box"><span class="form-label">メールアドレス</span></div>
+			<input type="text" 	name="mail" th:value="*{mail}">
+		</div>
+	
+		<div class="form-row">
+			<div th:errors="*{empDateJoin}"></div>
+			<div class="label-box"><span class="form-label">入社日</span></div>
+			<input type="date"	name="empDateJoin" th:value="*{empDateJoin}">
+		</div>
+	
+		<div class="form-btn">
+			<div class="label-btn">
+			<input type="button" class="empRegBtn" value="登録">
+
+		</div>
+	</form>
+
+</body>
+</html>

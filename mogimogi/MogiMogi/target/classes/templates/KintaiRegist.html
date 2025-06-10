@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>日付</p>
+	<p>時間</p>
+	
+	
+	
+		<form method = "post" action="/kintaiRegist">
+			<div th:if="${session.attend==null}">
+			<input type="submit" value="出勤">
+			</div>
+			<div th:if="${session.attend==1}">
+			<input type="submit" value="退勤">
+	</div>
+		</form>
+
+</body>
+</html>
